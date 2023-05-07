@@ -12,6 +12,9 @@ public class Main {
         arrayList.add("C++");
         arrayList.add("PHP");
         arrayList.add("Python");
+        arrayList.add("C++");
+        arrayList.add("PHP");
+        arrayList.add("Python");
 
         // convert ArrayList to Array
         System.out.println("Convert ArrayList to Array:");
