@@ -1,0 +1,45 @@
+- IoC(Inversion of Control): Đảo ngược điều khiển, nó giúp làm thay đổi luồng điều khiển của chương trình một cách linh hoạt.
+
+- Spring Container(IoC)  sẽ tạo các đối tượng, cấu hình các đối tượng và quản lý vòng đời của chúng, dùng DI để quản lý các đối tượng để tạo nên 1 ứng dụng (Spring Bean). Để tạo đối tượng, cấu hình, lắp rắp chúng -> đọc thông tin từ các file xml và thực thi chúng. Có 2 kiểu BeanFactory, ApplicationContext
+
+- BeanFactory và ApplicationContext đều là các interface thực hiện IoC Container. BeanFactory nằm ở mức cơ bản, còn ApplicationContext nằm ở mức cao hơn, thêm một số chức năng mở rộng như tích hợp vớ publishing events, xử lý message, context cho web application.
+
+- Dependency Inject là 1 kỹ thuật, 1 design pattern tiêm (inject) obj vào một obj khác cần nó. Cho phép xóa bỏ sự phụ thuộc hard-code và làm cho ứng dụng của bạn dễ mở rộng và maintain hơn. Có 2 cách thực hiện Dependency Inject là: qua hàm Constructor  và qua hàm setter
+
+- Bean là các đối tượng chính của ứng dụng được tạo và quản lý bởi Spring IoC.
+
+- 3 cách tạo Bean 
+	+ Tệp tin cấu hình dựa trên XML.
+	+ Dùng Annotation như @Component, @Repository, @Controlller, @Service.
+	+ Dùng Annotation như @Bean - thg dùng cho class Config
+
+- Inject bean vào bean khác:
+	+ C1: Dùng @Autowired để báo cho Spring biết tự động tìm và inject bean phù hợp vào vị trí đặt annotation.  	
+	+ C2: Inject qua hàm Constructor  và qua hàm setter
+
+- Xử lý bằng Aspect Oriented Programming (AOP) -  có thể ngắt ngang một method để thực hiện method khác, trong điều kiện gì đó; bằng @ControllerAdvice và @ExceptionHandler
+
+- Quản lý transaction trong Spring- hỗ trợ quản lý transaction tự động start, commit, hay rollback transaction tự động.@Transactional trước method. Khi có Exception xảy ra thì Transaction sẽ rollback lại các thao tác trước đó.
+
+- Index dùng để định vị và truy cập nhanh nhất vào dữ liệu trong các bảng database -> tối ưu hiệu suất truy vấn database, tăng tốc độ search. Nhưng cost bộ nhớ để lưu.
+
+-Oracle là RDBMS cung cấp CSDL quan hệ hỗ trợ nhiều tính năng gồm xử lý giao dịch, business intelligence (BI), backup và các ứng dụng phân tích.
+
+- Conver data từ query DB sang model: dùng repository, @query để defind query và return model
+
+- Từ model sang json: responseentity/ responsebody
+
+- Cấu trúc spring: chia làm nhiều module khác nhau. Tùy vào mục đích sử dụng mà sẽ chọn dùng 1 trong module đó.
+ + Test
+ + Spring Core Container
+ + AOP
+ + Data Access
+ + Web
+
+ - Connect source code vs db : add dependency db vô, setup db, setup file cấu hình resource/application.properties
+
+- Cấu trúc source code spring :file pom.xml chứa dependency của project, code được chứa trong thư mục src, thư mục build ra chứa các file class, file JAR với Maven là target, có 1 package chính đặt tên project, các package con đại diện cho class thuộc layer cụ thể (Controller, Service, Model,..), thư mục resources chứa các tài nguyên của ứng dụng như hình ảnh, static file, properties file,... Ngoài ra còn có src/test dùng để chứa các test class, dùng cho unit test.
+
+int x = 3;
+int a = x++;    // a = 3, x = 4
+int b = ++a     // b = 4, a = 4
